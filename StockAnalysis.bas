@@ -82,17 +82,17 @@ Sub StockAnalysis()
                             j = j + 1
                             TotalStockVolume = 0
                             Else
-                            TotalStockVolume = TotalStockVolume + Cells(i, 7)
+                            TotalStockVolume = TotalStockVolume + ws.Cells(i, 7)
     
                             End If
                         Next i
-                        MaxPercentChange = WorksheetFunction.Max(Range("K2:K" & LastRow))
-                        MinPercentChange = WorksheetFunction.Min(Range("K2:K" & LastRow))
-                        MaxVolume = WorksheetFunction.Max(Range("L2:L" & LastRow))
+                        MaxPercentChange = WorksheetFunction.Max(ws.Range("K2:K" & LastRow))
+                        MinPercentChange = WorksheetFunction.Min(ws.Range("K2:K" & LastRow))
+                        MaxVolume = WorksheetFunction.Max(ws.Range("L2:L" & LastRow))
                         
-                        MaxTickerRow = WorksheetFunction.Match(MaxPercentChange, Range("K2:K" & LastRow), 0) + 1
-                        MinTickerRow = WorksheetFunction.Match(MinPercentChange, Range("K2:K" & LastRow), 0) + 1
-                        MaxVolumeRow = WorksheetFunction.Match(MaxVolume, Range("L2:L" & LastRow), 0) + 1
+                        MaxTickerRow = WorksheetFunction.Match(MaxPercentChange, ws.Range("K2:K" & LastRow), 0) + 1
+                        MinTickerRow = WorksheetFunction.Match(MinPercentChange, ws.Range("K2:K" & LastRow), 0) + 1
+                        MaxVolumeRow = WorksheetFunction.Match(MaxVolume, ws.Range("L2:L" & LastRow), 0) + 1
                         
                         MaxTicker = ws.Cells(MaxTickerRow, 9).Value
                         MinTicker = ws.Cells(MinTickerRow, 9).Value
@@ -109,3 +109,4 @@ Sub StockAnalysis()
                         ws.Cells.EntireColumn.AutoFit
             Next ws
 End Sub
+
