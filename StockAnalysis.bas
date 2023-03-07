@@ -94,8 +94,8 @@ Sub StockAnalysis()
                         MinTickerRow = WorksheetFunction.Match(MinPercentChange, ws.Range("K2:K" & LastRow), 0) + 1
                         MaxVolumeRow = WorksheetFunction.Match(MaxVolume, ws.Range("L2:L" & LastRow), 0) + 1
                         
-                        MaxTicker = ws.Cells(MaxTickerRow, 9).Value
-                        MinTicker = ws.Cells(MinTickerRow, 9).Value
+                        MaxTicker = ws.Cells((MaxTickerRow), 9).Value
+                        MinTicker = ws.Cells((MinTickerRow), 9).Value
                         MaxVolumeTicker = ws.Cells(MaxVolumeRow, 9).Value
                         
                         ws.Range("Q2").Value = MaxPercentChange
@@ -103,9 +103,9 @@ Sub StockAnalysis()
                         ws.Range("Q3").Value = MinPercentChange
                         ws.Range("Q3").NumberFormat = "0.00%"
                         ws.Range("Q4").Value = MaxVolume
-                        ws.Range("P2").Value = MaxVolumeTicker
-                        ws.Range("P3").Value = MaxTicker
-                        ws.Range("P4").Value = MinTicker
+                        ws.Range("P4").Value = MaxVolumeTicker
+                        ws.Range("P2").Value = MaxTicker
+                        ws.Range("P3").Value = MinTicker
                         ws.Cells.EntireColumn.AutoFit
             Next ws
 End Sub
