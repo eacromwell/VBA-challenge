@@ -19,7 +19,7 @@ Sub StockAnalysis()
         
         Dim i As Long
         Dim j As Long
-        Dim LastRow As Integer
+        Dim LastRow As Long
         
         
         For Each ws In ThisWorkbook.Worksheets
