@@ -76,6 +76,14 @@ Sub StockAnalysis()
                                    Case Else
                                     ws.Range("J" & j).Interior.ColorIndex = xlNone
                             End Select
+                            Select Case PercentChange
+                                Case Is < 0
+                                    ws.Range("K" & j).Interior.Color = vbRed
+                                Case Is > 0
+                                    ws.Range("K" & j).Interior.Color = vbGreen
+                                   Case Else
+                                    ws.Range("K" & j).Interior.ColorIndex = xlNone
+                            End Select
                             
                             Start = i + 1
                             
@@ -100,7 +108,23 @@ Sub StockAnalysis()
                         
                         ws.Range("Q2").Value = MaxPercentChange
                         ws.Range("Q2").NumberFormat = "0.00%"
+                            Select Case MaxPercentChange
+                                Case Is < 0
+                                    ws.Range("Q2").Interior.Color = vbRed
+                                Case Is > 0
+                                    ws.Range("Q2").Interior.Color = vbGreen
+                                   Case Else
+                                    ws.Range("Q2").Interior.ColorIndex = xlNone
+                            End Select
                         ws.Range("Q3").Value = MinPercentChange
+                            Select Case MinPercentChange
+                                Case Is < 0
+                                    ws.Range("Q3").Interior.Color = vbRed
+                                Case Is > 0
+                                    ws.Range("Q3").Interior.Color = vbGreen
+                                   Case Else
+                                    ws.Range("Q3").Interior.ColorIndex = xlNone
+                            End Select
                         ws.Range("Q3").NumberFormat = "0.00%"
                         ws.Range("Q4").Value = MaxVolume
                         ws.Range("P4").Value = MaxVolumeTicker
